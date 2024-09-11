@@ -1,0 +1,21 @@
+---
+- name : practice ansible
+  hosts : all
+  become : true
+  tasks : 
+    - name : installing htop
+      yum:
+        name : htop
+        state : absent
+
+    - name : installing nginx
+      yum :
+        name : nginx
+        state : absent
+      notify : start nginx
+
+  handlers : 
+    - name : start nginx 
+      service : 
+        name : nginx
+        state : absent

@@ -1,0 +1,17 @@
+---
+- name: first playbook
+  hosts: all
+  become: true
+  tasks:
+  - name: yum module
+    yum:
+      name: nginx
+      state: absent
+  - name: start ngnix
+    service:
+      name: nginx
+      state: started
+  - name: installing htop
+    yum:
+     name: htop
+     state: stopped

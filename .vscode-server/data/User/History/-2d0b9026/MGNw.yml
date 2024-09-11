@@ -1,0 +1,9 @@
+---
+- name : playbook file
+  hosts : all
+  become : true
+  tasks :
+  - name : install htop
+    yum : 
+      name : htop
+      state : absent

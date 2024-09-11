@@ -1,0 +1,10 @@
+---
+- name : playbook file
+  hosts : worker_1
+  become : true
+  tasks :
+  - name : install htop
+    yum : 
+      name : htop
+      # state : absent
+      state : present
