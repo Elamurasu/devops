@@ -29,5 +29,5 @@
     - name : install packages
       yum : 
         name : "{{ package }}"
-        state : absent
+        state : present
       with_items : "{{ package }}" 
