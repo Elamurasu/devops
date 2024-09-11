@@ -1,0 +1,15 @@
+---
+- name : notify with handler
+  hosts : all 
+  become : true
+  tasks :
+    - name : install packages
+      yum : 
+        name : nginx
+        state : present
+      notify : start nginx   #this notify is used to call tha handler
+  handlers : 
+  - name : start nginx
+    service : 
+      name : nginx 
+      state : started
