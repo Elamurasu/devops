@@ -1,0 +1,33 @@
+---
+- name : single variable playbook
+  hosts : worker_1
+  become : true
+
+  vars : 
+    institute : "besant tech"
+    city : "bangalore"
+    package : 
+      - nc
+      - htop
+      - nginx
+    year : "2024"
+
+  tasks : 
+    # - name : "printing the single value"
+    #   debug : 
+    #     msg : " i'm studing in {{ institute }}"
+
+    # - name : multi variable
+    #   debug : 
+    #     msg : "{{ package }}"
+
+    - name : "multi value with loop"
+      debug : 
+        msg : "install package {{ package }}"
+        # with_items : "{{ package }}"
+
+    - name : install packages
+      yum : 
+        name : "{{ item }}"
+        state : present
+      with_items : "{{ package }}"

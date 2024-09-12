@@ -1,0 +1,6 @@
+---
+- name : playbook for role
+  hosts : worker_1
+  become : true
+  roles : 
+    - roles

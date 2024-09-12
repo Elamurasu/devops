@@ -1,0 +1,36 @@
+---
+- name : single variable playbook
+  hosts : worker_1
+  become : true
+
+  vars : 
+    institute : "besant tech"
+    city : "bangalore"
+    package : 
+      - nc
+      - htop
+      - nginx
+    year : 
+      - 2024
+      - 2025
+      - 2026
+
+  tasks : 
+    - name : "printing the single variable value"
+      debug : 
+        msg : " i'm studing in {{ institute }}"
+
+    - name : "printing the list[] variable value"
+      debug : 
+        msg : "the list of variables is {{ package }}"
+
+    - name : "printing loop value using item"
+      debug : 
+        msg : "install package {{ item }}"
+      with_items : "{{ year }}"
+
+    - name : installing package
+      yum : 
+        name : "{{ package }}"
+        state : present
+      with_items : "{{ package }}" 

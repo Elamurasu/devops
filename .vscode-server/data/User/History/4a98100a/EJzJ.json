@@ -1,0 +1,6 @@
+{
+    "extensions.ignoreRecommendations": true,
+    "git.openRepositoryInParentFolders": "never",
+    "explorer.confirmDelete": false,
+    "git.autofetch": true
+}

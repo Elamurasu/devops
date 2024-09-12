@@ -1,0 +1,38 @@
+---
+- name : practice ansible
+  hosts : worker_1
+  become : true
+
+  vars :
+    username : Elamurasu
+    age : 25 
+    city : Dharmapuri 
+  
+  tasks :
+    - name : installing htop
+      yum : 
+        name : htop
+        state : present
+        
+    - name : printing name
+      debug : 
+        msg : "myself {{ username }} and I am {{ age }} years old"
+
+  # tasks : 
+  #   - name : installing htop
+  #     yum:
+  #       name : htop
+  #       state : present
+
+  #   - name : installing nginx
+  #     yum :
+  #       name : nginx
+  #       state : present
+  #     notify : start nginx
+
+  # handlers : 
+  #   - name : start nginx 
+  #     service : 
+  #       name : nginx
+  #       state : started
+  
