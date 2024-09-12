@@ -10,7 +10,10 @@
       - nc
       - htop
       - nginx
-    year : "2024"
+    year : 
+      - 2024
+      - 2025
+      - 2026
 
   tasks : 
     - name : "printing the single variable value"
@@ -21,12 +24,12 @@
       debug : 
         msg : "the list of variables is {{ package }}"
 
-    - name : "loop a value using "
+    - name : "printing loop value using item"
       debug : 
         msg : "install package {{ item }}"
-      with_items : "{{ package }}"
+      with_items : "{{ year }}"
 
-    - name : install packages
+    - name : installing package
       yum : 
         name : "{{ package }}"
         state : present
