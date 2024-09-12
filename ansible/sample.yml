@@ -7,7 +7,7 @@
       yum : 
         name : nginx
         state : present
-      notify : start nginx   #this notify is used to call tha handler
+      notify : start nginx   #this function is used to call tha handler
 
   handlers : 
   - name : start nginx

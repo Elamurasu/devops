@@ -1,0 +1,4 @@
+---
+# defaults file for roles
+city : "bangalore"
+wether : "cloudy"
